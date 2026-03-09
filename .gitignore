@@ -161,7 +161,7 @@ Pipfile.lock
 poetry.lock
 
 # Requirements
-requirements.txt
+#requirements.txt
 !requirements.txt  # Exceptuar si quieres subirlo
 
 # ============================================

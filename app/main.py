@@ -17,7 +17,8 @@ load_dotenv()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    init_db()
+    if settings.ENVIRONMENT == "DEV":
+        init_db()
     yield
 
 app = FastAPI(

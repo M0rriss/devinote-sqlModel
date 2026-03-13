@@ -70,7 +70,7 @@ class NoteService:
         return sorted(combined.values(), key = lambda note: note.id, reverse = True) # explciar esto tambine bien ok o como seria 
     
     def create(self, owner_id: int, payload: NoteCreate) -> Note:
-        note = self.notes.create( Note(owner_id = owner_id), **payload.model_dump(exclude = {"label_ids"}) ) #desepacteado outpu explciando el resto tambien ok 
+        note = self.notes.create(Note(owner_id=owner_id, **payload.model_dump(exclude={"label_ids"}))) 
         
         if payload.label_ids:
             self._set_labels(owner_id, note.id, payload.label_ids)

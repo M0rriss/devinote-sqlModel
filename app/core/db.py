@@ -8,7 +8,7 @@ from sqlmodel import SQLModel, Session, create_engine
 engine = create_engine(settings.DATABASE_URL, echo = False, connect_args={"check_same_thread": False} if "sqlite" in settings.DATABASE_URL else {})
 
 
-def ini_db() -> None:
+def init_db() -> None:
     SQLModel.metadata.create_all(engine)
     
 def get_session() -> Iterator[Session]:
